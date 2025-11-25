@@ -1,0 +1,92 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "React 18",
+    "Vite",
+    "TailwindCSS",
+    "Radix UI",
+    "Lucide Icons",
+    "Motion/Framer Motion",
+    "Node.js",
+    "Express",
+    "MySQL (mysql2)",
+    "JWT (jsonwebtoken)",
+    "bcryptjs",
+    "CORS",
+    "dotenv"
+  ],
+  "features": [
+    {
+      "name": "Autenticação",
+      "description": "Login, registro, sessão JWT e recuperação de senha em 2 etapas (código + redefinição)",
+      "files": [
+        "src/components/LoginScreen.tsx",
+        "src/api/http.ts",
+        "server/server.js"
+      ]
+    },
+    {
+      "name": "Coleção de Vinhos",
+      "description": "Listagem, card com país e uva, favoritos, imagens",
+      "files": [
+        "src/components/WineLibrary.tsx",
+        "src/components/WineCard.tsx",
+        "server/server.js"
+      ]
+    },
+    {
+      "name": "Cadastro/Edição de Vinho",
+      "description": "Formulário de criação/edição incluindo Fatos (vinícola, região, teor alcoólico, descrição) e notas de degustação",
+      "files": [
+        "src/components/CreateWineEntry.tsx",
+        "server/server.js",
+        "server/migrations.js"
+      ]
+    },
+    {
+      "name": "Detalhes do Vinho",
+      "description": "Exibição de harmonizações e Fatos abaixo, sem uva",
+      "files": [
+        "src/components/WineDetails.tsx",
+        "server/server.js"
+      ]
+    },
+    {
+      "name": "Escala de Intensidade",
+      "description": "Tela de animação por grupos de uvas; ícone e botão de replay removidos",
+      "files": [
+        "src/components/WineScaleAnimation.tsx",
+        "src/components/ScaleScreen.tsx"
+      ]
+    },
+    {
+      "name": "Perfil e Configurações",
+      "description": "Tela de perfil com menu, modal ‘Sobre’; tela de configurações de conta",
+      "files": [
+        "src/components/ProfileScreen.tsx",
+        "src/components/AccountSettingsScreen.tsx"
+      ]
+    },
+    {
+      "name": "Infra e Utilitários UI",
+      "description": "Componentes Radix UI wrappers (Dialog, AlertDialog, Drawer, Sheet) com forwardRef corrigido",
+      "files": [
+        "src/components/ui/dialog.tsx",
+        "src/components/ui/alert-dialog.tsx",
+        "src/components/ui/drawer.tsx",
+        "src/components/ui/sheet.tsx",
+        "src/components/ui/button.tsx",
+        "src/components/ui/input.tsx",
+        "src/components/ui/label.tsx"
+      ]
+    },
+    {
+      "name": "OCR e Upload",
+      "description": "Endpoints para upload de imagem e OCR",
+      "files": [
+        "src/api/http.ts",
+        "server/server.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+Design prompt (Português) - Preferences screen (Vinoteca)
+
+Design mobile screen: "Preferências" para o app de vinhos Vinoteca.
+Tema: elegante, minimalista, sensorial — paleta: bordô escuro #4C1C1C, dourado suave #C9A646, bege #F7F3EE, contraste para modo escuro #1B1B1B.
+Tipografia: títulos em Playfair Display (serif), textos em Inter (sans). Ícones: linha fina (Lucide/Feather).
+Estrutura:
+
+- Header: small avatar circular left, "Preferências" center title, subtle settings icon right.
+- Main: 3 cartões horizontais com swipe (ou stacking) — "Meu Paladar", "Meus Momentos", "Meu Estilo". Cada cartão com radius 18px, shadow suave, spacing 16px.
+
+Card 1 — Meu Paladar:
+- Large interactive slider (taça estilizada). Slider 3 stops (Leve, Médio, Encorpado) with micro-animations: taça preenche with color progression (rosé→granate→dark).
+- Row of chips (max selectable 3) with icons: Frutado, Floral, Herbal, Amadeirado, Especiarias, Cítrico, Chocolate.
+- Sweetness selector: 3 tappable glasses labeled Seco / Meio-seco / Doce.
+
+Card 2 — Meus Momentos:
+- Grid 2x3 of small illustrated cards (icons+label): Churrasco, Jantar, Queijos, Sobremesa, Relaxar, Evento.
+- Each card toggles on/off, shows subtle check overlay when selected.
+
+Card 3 — Meu Estilo:
+- Radio-like list: Explorador / Tradicionalista / Estudioso / Social — each with small description and icon.
+- CTA: "Ver sugestões com base no seu estilo" (button, gold background).
+
+Footer:
+- Save button (burgundy) and small "Cancelar" link.
+- Helper text: "Suas preferências ajudam o Vinoteca a sugerir vinhos que combinam com você."
+
+Micro-interactions:
+- Chips pulse on select; slider animates cup filling; card toggle fades and shows check; transitions ~200–350ms.
+- Accessibility: labels, contrast and tap targets >= 44px.
+
+Deliverables: artboards mobile (iPhone 12 size), components (chips, slider-cup, moment-cards), color tokens, and a simple prototype linking cards and Save flow.

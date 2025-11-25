@@ -1,0 +1,20 @@
+Design prompt (Português) - Simplified Account Settings screen (Vinoteca)
+
+Design mobile screen: "Configurações da Conta" (simplified) for the Vinoteca wine app.
+Goal: only editable, relevant account fields shown to user. Keep UI clean and minimal.
+
+Requirements:
+- Header: "Configurações da Conta" with back arrow.
+- Sections (only):
+  1) Photo (avatar) - tap to change (instruction small).
+  2) Name (editable)
+  3) Email (display-only with note: change via "Alterar e-mail" in Security)
+  4) Country and Language (compact inputs)
+  5) Appearance (System / Light / Dark buttons)
+  6) Notifications (single toggle: Receive marketing emails)
+  7) Security quick links: Change password, Two-factor auth (navigate, don't display heavy info)
+- Footer actions: Cancel | Save Changes (primary)
+- Style: calm, minimal, wine-inspired accents (burgundy #4C1C1C, gold #C9A646, off-white background).
+- Accessibility: labels, touch targets >=44px, readable contrast.
+
+Deliverables: mobile artboard, components, and a simple prototype linking Save flow. Optimize for clarity and minimalism.

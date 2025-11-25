@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3001",
+  "loginUser": "rc77.rc91@gmail.com",
+  "loginPassword": "731622",
+  "executionArgs": {
+    "projectName": "Vinoteca",
+    "projectPath": "c:\\xampp\\htdocs\\Wine",
+    "testIds": [],
+    "additionalInstruction": "Run security validation for auth, reset password, JWT, SQL injection, XSS, CORS; produce markdown report.",
+    "envs": {
+      "API_KEY": "sk-user-qzNE_1lTO88U-AEMH4bIywq_5l9_WXV3f6tGo1a2VfH2lXVPADn32WQYAoOngEnrpG7dWeu3sftaX6ar-Db8fcobKlbyVWL-f72RmD_cKWlPyxdsasP3X19cizNm0foJVds"
+    }
+  },
+  "proxy": "http://f8893a0d-43d7-4764-bd69-8ae49775524e:RMZFP4AxswjZU82Pky0cA6qOq5gtXOJh@tun.testsprite.com:8080"
+}

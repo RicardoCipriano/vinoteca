@@ -1,0 +1,609 @@
+[
+  {
+    "id": "TC001",
+    "title": "User Registration Success",
+    "description": "Verify that a new user can successfully register and receive a valid JWT token.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to user registration screen"
+      },
+      {
+        "type": "action",
+        "description": "Input valid new user data (username, email, password, etc.)"
+      },
+      {
+        "type": "action",
+        "description": "Submit registration form"
+      },
+      {
+        "type": "assertion",
+        "description": "Check HTTP 201 response with valid JWT token returned"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is redirected to wine library with session initialized"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "User Login Success",
+    "description": "Verify that an existing user can login successfully with correct credentials and receive a valid JWT token.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page"
+      },
+      {
+        "type": "action",
+        "description": "Input valid registered username/email and password"
+      },
+      {
+        "type": "action",
+        "description": "Click login button"
+      },
+      {
+        "type": "assertion",
+        "description": "Check HTTP 200 response with valid JWT token"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user profile data is fetched and session initialized"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "User Login Failure with Invalid Credentials",
+    "description": "Verify login failure when user provides invalid credentials.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page"
+      },
+      {
+        "type": "action",
+        "description": "Input incorrect username/email or password"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to login"
+      },
+      {
+        "type": "assertion",
+        "description": "Check HTTP 401 or appropriate error response"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that no JWT token is issued and error message is shown"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Two-Step Password Recovery Flow",
+    "description": "Verify that a user can request a password reset code and successfully reset their password using a two-step process.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to password recovery request screen"
+      },
+      {
+        "type": "action",
+        "description": "Input registered email or username"
+      },
+      {
+        "type": "action",
+        "description": "Submit password reset code request"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify reset code is issued and communicated (e.g., email simulated)"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to password reset screen"
+      },
+      {
+        "type": "action",
+        "description": "Input received reset code and a new valid password"
+      },
+      {
+        "type": "action",
+        "description": "Submit password reset"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 200 response and password is updated"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm user can login with new password"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Password Recovery with Invalid Reset Code",
+    "description": "Ensure password reset fails when an invalid or expired reset code is submitted.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Request password reset code for a user"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to reset password using invalid or expired reset code"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP error response and appropriate error message"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm password has not been updated"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Create Wine Entry with OCR Image Upload",
+    "description": "Verify that a user can create a new wine entry including uploading an image and using OCR to extract label data.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to create wine entry form"
+      },
+      {
+        "type": "action",
+        "description": "Fill in wine data fields with valid inputs"
+      },
+      {
+        "type": "action",
+        "description": "Upload base64-encoded wine label image (less than 5MB)"
+      },
+      {
+        "type": "action",
+        "description": "Trigger OCR process to extract text from label"
+      },
+      {
+        "type": "assertion",
+        "description": "Check OCR returns extracted text or HTTP 503 if inactive"
+      },
+      {
+        "type": "action",
+        "description": "Submit wine creation form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 201 response and new wine appears in user's library"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Fail Wine Image Upload for Exceeding Size Limit",
+    "description": "Verify that uploading an image larger than 5 MB fails gracefully with an error.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Attempt to upload base64 image exceeding 5 MB during wine creation or edit"
+      },
+      {
+        "type": "assertion",
+        "description": "Check for HTTP error status and meaningful error message"
+      },
+      {
+        "type": "assertion",
+        "description": "Validate that wine entry is not created or updated with invalid upload"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Read Wine Library Listing",
+    "description": "Verify that the wine library lists all wines properly with country flags, grape details, and favorite toggle states.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to wine library page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify list displays user’s wine entries with correct data"
+      },
+      {
+        "type": "assertion",
+        "description": "Check each wine card shows country flags and grape variety details"
+      },
+      {
+        "type": "action",
+        "description": "Toggle favorite state for some wines"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify favorite toggle updates visually and persists state"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Update Wine Entry and Replace Harmonizations",
+    "description": "Confirm that editing an existing wine entry updates all information including replacing harmonizations correctly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select an existing wine entry from library"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to edit form and modify fields including harmonizations"
+      },
+      {
+        "type": "action",
+        "description": "Submit updates"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 200 response for update"
+      },
+      {
+        "type": "assertion",
+        "description": "Check updated harmonizations are replaced and displayed in wine details"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Delete Wine Entry",
+    "description": "Verify that a user can delete a wine entry and it is removed from their library.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select a wine entry from the library"
+      },
+      {
+        "type": "action",
+        "description": "Trigger the delete action and confirm the deletion"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 200 or 204 response upon deletion"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the entry no longer appears in the wine library"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "View Wine Detail with Harmonizations and Facts",
+    "description": "Ensure that selecting a wine shows its detailed information including harmonizations and key facts without grape details.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Click a wine card from the library listing"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify detailed view loads with harmonization information"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm wine facts such as winery, region, alcohol content, and description are visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Check that grape details are not shown in this detailed view"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Configure Taste Profile and Persist Data",
+    "description": "Verify users can update their taste profile (intensity, style, sweetness, moments, personality) and the data is persisted via API.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to taste profile configuration screen"
+      },
+      {
+        "type": "action",
+        "description": "Modify various taste preference fields"
+      },
+      {
+        "type": "action",
+        "description": "Submit the updated taste profile"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 200 response on profile update"
+      },
+      {
+        "type": "assertion",
+        "description": "Reload profile and confirm saved data matches input"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Receive Personalized Wine Recommendations Based on Taste Profile",
+    "description": "Ensure the recommendations API returns a list of wines tailored to the user's taste profile when one is configured.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "precondition",
+        "description": "User has a configured taste profile saved"
+      },
+      {
+        "type": "action",
+        "description": "Request personalized wine recommendations"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 200 response with a list of recommended wines"
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure recommendations reflect user preferences logically"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Update Profile and Account Settings",
+    "description": "Verify that users can update their profile preferences including country, language, theme, and marketing options with immediate effect.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to profile and account settings screens"
+      },
+      {
+        "type": "action",
+        "description": "Change country, language, theme, and toggle marketing preferences"
+      },
+      {
+        "type": "action",
+        "description": "Submit settings update"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 200 response"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify UI updates reflect new preferences immediately"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Account Deletion Removes User Data and Invalidates Session",
+    "description": "Verify that account deletion removes all user data and invalidates the current session preventing further access.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to account deletion option in settings"
+      },
+      {
+        "type": "action",
+        "description": "Confirm account deletion"
+      },
+      {
+        "type": "assertion",
+        "description": "Check HTTP 200 response confirming deletion"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to access protected resources with previous token"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access is denied and token is invalidated"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "User Level Endpoint Accuracy",
+    "description": "Verify that the user level endpoint returns the correct level based on simulated user engagement badges like Beginner, Curious, Sommelier, and Expert.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate user activity to reach different badge levels"
+      },
+      {
+        "type": "action",
+        "description": "Request user level from endpoint"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the returned user level matches expected badge for the simulated activity"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Privacy Policy Endpoint Returns Legal Text",
+    "description": "Validate that the privacy policy endpoint returns full legal text as expected.",
+    "category": "functional",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Send GET request to privacy policy endpoint"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify response includes complete legal text content"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Health Endpoint Indicates Service Status",
+    "description": "Verify that health check endpoint correctly indicates service operational status.",
+    "category": "functional",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Send request to health endpoint"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm service status is reported as up and running"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "API Standardized Error Handling",
+    "description": "Verify that API consistently returns meaningful error codes and messages for invalid or malformed requests.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Make API requests with invalid data, missing headers, or unauthorized access"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify appropriate HTTP status codes (400, 401, 403, 404, 503) and descriptive error messages are returned"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "JWT Based Route Protection",
+    "description": "Verify that protected API routes require a valid JWT token and reject unauthorized access.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Attempt to access protected API routes without token"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 401 Unauthorized response"
+      },
+      {
+        "type": "action",
+        "description": "Attempt access with invalid or expired tokens"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify HTTP 401 Unauthorized response"
+      },
+      {
+        "type": "action",
+        "description": "Access protected routes with valid JWT token"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access granted and responses are successful"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Responsive UI Compatibility on Multiple Devices",
+    "description": "Verify that the SPA UI renders and functions correctly on modern browsers and various mobile devices.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the application in latest Chrome, Firefox, Safari, Edge on desktop"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify UI layout is correct and all interactive components work"
+      },
+      {
+        "type": "action",
+        "description": "Open the application on mobile devices with different screen sizes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify responsive design works, menus and forms are usable, no content overflow"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Performance: Wine Listing Response Time",
+    "description": "Verify that wine listings load and respond within 500 ms to meet performance targets.",
+    "category": "performance",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Request wine library listing"
+      },
+      {
+        "type": "assertion",
+        "description": "Measure API and UI response time"
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure response time is under 500 ms"
+      }
+    ]
+  },
+  {
+    "id": "TC023",
+    "title": "Performance: Error Rates Under Threshold",
+    "description": "Verify that the application maintains error rates within acceptable thresholds during typical use.",
+    "category": "performance",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate standard user operations across features repeatedly"
+      },
+      {
+        "type": "assertion",
+        "description": "Monitor system error response rate"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm error rate remains below defined thresholds"
+      }
+    ]
+  }
+]

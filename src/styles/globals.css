@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --garnet: #6B0F12;
+    --dark-bordeaux: #4A0D12;
+    --cream: #F7EFE6;
+    --gold: #CDA15D;
+    --gray: #6B6B6B;
+    
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 349 82% 24%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 39 46% 58%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 349 82% 24%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  .dark {
+    --background: 349 25% 8%;
+    --foreground: 0 0% 98%;
+    --card: 349 25% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 349 25% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 349 82% 24%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 349 25% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 349 25% 14%;
+    --muted-foreground: 0 0% 75%;
+    --accent: 39 46% 58%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 349 25% 18%;
+    --input: 349 25% 18%;
+    --ring: 349 82% 24%;
+  }
+  .dark body {
+    background-color: #1c0f10;
+    color: #f7efe6;
+  }
+  .dark .bg-white {
+    background-color: #241214;
+  }
+  .dark .text-[#4C1C1C] {
+    color: #f7efe6;
+  }
+  .dark .text-[#6B6B6B] {
+    color: #c8c3bd;
+  }
+  .dark .border-[#C9A646] {
+    border-color: #b78f45;
+  }
+  .dark .bg-[#4C1C1C] {
+    background-color: #3a0f12;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[#800000] text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  button {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');

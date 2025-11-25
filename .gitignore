@@ -1,0 +1,28 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+package-lock.json
+
+# Build outputs
+dist/
+coverage/
+
+# Env files
+.env
+.env.*
+apk/.env
+
+# IDE/OS
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Expo/React Native
+apk/android/.gradle/
+apk/android/app/build/
+apk/node_modules/
+apk/dist/
+
+# Logs
+*.log

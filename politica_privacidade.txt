@@ -1,0 +1,61 @@
+POLÍTICA DE PRIVACIDADE – VinoTeca Última atualização: 17/11/2025
+
+A presente Política de Privacidade descreve como o aplicativo VinoTeca
+coleta, utiliza, armazena e protege os dados pessoais de seus usuários,
+em conformidade com a Lei Geral de Proteção de Dados (LGPD – Lei nº
+13.709/2018).
+
+1.  Informações que Coletamos
+
+-   Dados de cadastro (nome, e-mail, senha criptografada, país, idioma,
+    foto de perfil)
+-   Dados de uso (vinhos cadastrados, favoritos, notas, preferências)
+-   Dados de câmera (imagens de rótulos para identificação)
+-   Dados técnicos (modelo do dispositivo, logs, sistema operacional)
+
+2.  Como Utilizamos os Dados
+
+-   Criar e manter a conta do usuário
+-   Personalizar recomendações
+-   Identificar rótulos via câmera
+-   Melhorar recursos e estabilidade do app
+-   Enviar comunicações essenciais
+-   Garantir segurança e prevenção a fraudes
+
+3.  Compartilhamento de Dados
+
+-   Parceiros e fornecedores essenciais
+-   Cumprimento de obrigações legais
+-   Mediante consentimento do usuário
+
+4.  Armazenamento e Segurança
+
+-   Criptografia de senhas
+-   Conexões seguras
+-   Monitoramento de acesso
+-   Armazenamento seguro no Brasil ou exterior
+
+5.  Direitos do Usuário
+
+-   Acessar, corrigir ou excluir dados
+-   Portabilidade
+-   Revogação de consentimento
+-   Solicitação via e-mail [rc77.rc91@gmail.com]
+
+6.  Exclusão da Conta Os dados serão removidos, exceto informações
+    necessárias ao cumprimento legal.
+
+7.  Uso da Câmera Utilizada apenas para captura de rótulos. Não
+    realizamos reconhecimento facial.
+
+8.  Cookies e Rastreamento Utilizamos identificadores anônimos para
+    melhorar a experiência e performance.
+
+9.  Alterações nesta Política A política pode ser atualizada.
+    Notificaremos mudanças relevantes pelo app.
+
+10. Contato Para dúvidas ou solicitações relacionadas à privacidade:
+    [rc77.rc91@gmail.com]
+
+11. Aceite dos Termos Ao usar o VinoTeca, o usuário concorda com esta
+    Política de Privacidade.

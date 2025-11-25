@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "project": "Wine App",
+    "date": "2025-11-19",
+    "prepared_by": "Software Development Manager"
+  },
+  "product_overview": "Wine is a Single Page Application for wine enthusiasts to manage their personal wine library, explore wine details, receive personalized recommendations, and manage their user profile with secure authentication and OCR-enabled label uploads.",
+  "core_goals": [
+    "Provide secure user authentication with registration, login, and password recovery.",
+    "Enable users to create, read, update, and delete wine entries in their personal library with detailed information and tasting notes.",
+    "Support image upload and OCR to assist in wine label entry.",
+    "Allow users to view detailed wine information including harmonizations and classifications.",
+    "Offer personalized taste profile management and wine recommendations based on user preferences.",
+    "Provide account management including settings update and account deletion.",
+    "Ensure system reliability, security, and performance with standardized error handling and JWT-based protection.",
+    "Deliver a responsive UI compatible with modern browsers and mobile devices."
+  ],
+  "key_features": [
+    "User authentication with JWT, registration, login, and two-step password recovery.",
+    "Wine library management: listing, favorites, detailed views, creation, editing, and deletion.",
+    "OCR-enabled label upload to facilitate quick data entry from images.",
+    "Taste profile configuration allowing customization by intensity, style, sweetness, moments, and personality.",
+    "Personalized wine recommendations based on user taste profiles.",
+    "Profile and account settings screens with options for country, language, theme, and marketing preferences.",
+    "Comprehensive API endpoints for catalogs: grapes, regions, wineries, and harmonizations.",
+    "User level calculation reflecting engagement with badges such as Beginner, Curious, Sommelier, and Expert.",
+    "Robust backend with MySQL persistence and Node.js/Express API support with CORS and security best practices."
+  ],
+  "user_flow_summary": [
+    "User registers via registration screen; upon success, receives JWT token and is redirected to wine library.",
+    "User logs in with credentials; token stored and profile data fetched to initialize session.",
+    "Users can add new wine entries via a form, supporting optional image upload and OCR assistance, then saved to library.",
+    "Users browse wine listings with country flags and grape details; favorite wines can be toggled directly.",
+    "Clicking on a wine opens detailed view showing harmonizations and additional facts.",
+    "Users configure their taste profile for tailored wine recommendations and view recommended wines.",
+    "Users navigate to profile and account settings to update preferences or delete their account.",
+    "Password reset flows include requesting a reset code and submitting new password with validation checks."
+  ],
+  "validation_criteria": [
+    "User registration returns HTTP 201 with valid token; login returns HTTP 200 and token.",
+    "Password recovery flow issues reset code and accepts valid new passwords.",
+    "Wine CRUD operations return appropriate HTTP statuses; edited wines replace harmonizations; favoriting toggles state.",
+    "Image upload accepts base64 images up to 5 MB and returns accessible URLs; OCR returns text or HTTP 503 if inactive.",
+    "Taste profile PUT persists data; recommendations GET returns wine lists when profile exists.",
+    "Account settings updates reflect immediately with HTTP 200; account deletion removes all user data and invalidates session.",
+    "User level endpoint returns correct level based on simulated activity.",
+    "Privacy policy endpoint returns legal text; health endpoint indicates service status.",
+    "Performance targets met with listings responding under 500ms; error rates kept under thresholds."
+  ],
+  "code_summary": {
+    "tech_stack": [
+      "TypeScript",
+      "React 18",
+      "Vite",
+      "TailwindCSS",
+      "Radix UI",
+      "Lucide Icons",
+      "Motion/Framer Motion",
+      "Node.js",
+      "Express",
+      "MySQL (mysql2)",
+      "JWT (jsonwebtoken)",
+      "bcryptjs",
+      "CORS",
+      "dotenv"
+    ],
+    "features": [
+      {
+        "name": "Autenticação",
+        "description": "Login, registro, sessão JWT e recuperação de senha em 2 etapas (código + redefinição)",
+        "files": [
+          "src/components/LoginScreen.tsx",
+          "src/api/http.ts",
+          "server/server.js"
+        ]
+      },
+      {
+        "name": "Coleção de Vinhos",
+        "description": "Listagem, card com país e uva, favoritos, imagens",
+        "files": [
+          "src/components/WineLibrary.tsx",
+          "src/components/WineCard.tsx",
+          "server/server.js"
+        ]
+      },
+      {
+        "name": "Cadastro/Edição de Vinho",
+        "description": "Formulário de criação/edição incluindo Fatos (vinícola, região, teor alcoólico, descrição) e notas de degustação",
+        "files": [
+          "src/components/CreateWineEntry.tsx",
+          "server/server.js",
+          "server/migrations.js"
+        ]
+      },
+      {
+        "name": "Detalhes do Vinho",
+        "description": "Exibição de harmonizações e Fatos abaixo, sem uva",
+        "files": [
+          "src/components/WineDetails.tsx",
+          "server/server.js"
+        ]
+      },
+      {
+        "name": "Escala de Intensidade",
+        "description": "Tela de animação por grupos de uvas; ícone e botão de replay removidos",
+        "files": [
+          "src/components/WineScaleAnimation.tsx",
+          "src/components/ScaleScreen.tsx"
+        ]
+      },
+      {
+        "name": "Perfil e Configurações",
+        "description": "Tela de perfil com menu, modal ‘Sobre’; tela de configurações de conta",
+        "files": [
+          "src/components/ProfileScreen.tsx",
+          "src/components/AccountSettingsScreen.tsx"
+        ]
+      },
+      {
+        "name": "Infra e Utilitários UI",
+        "description": "Componentes Radix UI wrappers (Dialog, AlertDialog, Drawer, Sheet) com forwardRef corrigido",
+        "files": [
+          "src/components/ui/dialog.tsx",
+          "src/components/ui/alert-dialog.tsx",
+          "src/components/ui/drawer.tsx",
+          "src/components/ui/sheet.tsx",
+          "src/components/ui/button.tsx",
+          "src/components/ui/input.tsx",
+          "src/components/ui/label.tsx"
+        ]
+      },
+      {
+        "name": "OCR e Upload",
+        "description": "Endpoints para upload de imagem e OCR",
+        "files": [
+          "src/api/http.ts",
+          "server/server.js"
+        ]
+      }
+    ]
+  }
+}

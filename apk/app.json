@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Vinoteca",
+    "slug": "vinoteca-apk",
+    "scheme": "vinoteca",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "sdkVersion": "51.0.0",
+    "platforms": ["android"],
+    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "package": "com.viniteca.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#800000"
+      }
+    }
+  }
+}
